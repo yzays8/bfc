@@ -1,2 +1,4 @@
 testc
 testc.c
+src/*.o
+src/main
