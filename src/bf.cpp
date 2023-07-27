@@ -150,7 +150,7 @@ void Compiler::PrintC() {
             << "    if (ptr == NULL) {\n"
             << "        printf(\"Failed to allocate memory\");\n"
             << "        return 1;\n"
-            << "    }" << std::endl;
+            << "    }\n" << std::endl;
   for (auto& code : code_) {
     GenerateC(code, 0);
   }
