@@ -1,7 +1,5 @@
 #pragma once
 
-// change file name to bfc.hpp and bf.hpp is changed to compiler.hpp later
-
 #include <string>
 #include <vector>
 #include <memory>
