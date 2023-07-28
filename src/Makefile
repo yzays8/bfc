@@ -1,6 +1,6 @@
 CC = g++
 TARGET = main
-OBJS = main.o bf.o
+OBJS = main.o compiler.o lexer.o parser.o gen.o
 CXXFLAGS = -Wall -Wextra -std=c++2b
 
 .PHONY: all

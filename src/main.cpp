@@ -1,7 +1,7 @@
 #include <iostream>
 #include <memory>
 
-#include "bf.hpp"
+#include "compiler.hpp"
 
 int main(int argc, char** argv) {
   if (argc != 2) {
@@ -10,5 +10,5 @@ int main(int argc, char** argv) {
   }
 
   auto compiler = std::make_unique<Compiler>();
-  compiler->GetCodeC(argv[1]);
+  compiler->TranspileC(argv[1]);
 }
