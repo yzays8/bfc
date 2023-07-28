@@ -41,7 +41,7 @@ std::shared_ptr<Node> Parser::Command() {
     case ',':
       return std::make_shared<Node>(ND_GET_CHAR);
     case '[': {
-      std::shared_ptr node = std::make_shared<Node>(ND_LOOP_START);
+      std::shared_ptr<Node> node = std::make_shared<Node>(ND_LOOP_START);
       ++depth_;
       for (;;) {
         ++token_iter_;
