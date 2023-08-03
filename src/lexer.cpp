@@ -1,7 +1,10 @@
 #include <iostream>
 #include <memory>
 
+#include "bfc.hpp"
 #include "lexer.hpp"
+
+const std::string kCorrectTokens = R"(<>+-.,[])";
 
 Lexer::Lexer() : tokens_{} {}
 

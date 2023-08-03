@@ -29,4 +29,4 @@ struct Node {
   std::vector<std::unique_ptr<Node>> children;  // for LOOP_START
 };
 
-const std::string kCorrectTokens = R"(<>+-.,[])";
+extern const std::string kCorrectTokens;
