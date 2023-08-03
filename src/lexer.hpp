@@ -9,8 +9,8 @@
 class Lexer {
  public:
   Lexer();
-  std::list<std::shared_ptr<Token>>& Lex(std::ifstream ifs);
+  std::list<std::unique_ptr<Token>>& Lex(std::ifstream ifs);
 
  private:
-  std::list<std::shared_ptr<Token>> tokens_;
+  std::list<std::unique_ptr<Token>> tokens_;
 };

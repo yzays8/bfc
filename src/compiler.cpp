@@ -14,7 +14,7 @@ Compiler::Compiler()
       parser_{std::make_unique<Parser>()},
       generator_{std::make_unique<Generator>()} {}
 
-std::ifstream Compiler::Load(const std::string path) {
+std::ifstream Compiler::Load(const std::string& path) {
   if (!std::filesystem::is_regular_file(path)) {
     std::cerr << path << " is not a regular file" << std::endl;
     std::exit(EXIT_FAILURE);
@@ -27,6 +27,6 @@ std::ifstream Compiler::Load(const std::string path) {
   return ifs;
 }
 
-void Compiler::TranspileC(const std::string path) {
+void Compiler::TranspileC(const std::string& path) {
   generator_->PrintC(parser_->Parse(lexer_->Lex(Load(path))));
 }

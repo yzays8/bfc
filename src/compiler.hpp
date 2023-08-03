@@ -11,10 +11,10 @@
 class Compiler {
  public:
   Compiler();
-  void TranspileC(const std::string path);
+  void TranspileC(const std::string& path);
 
  private:
-  std::ifstream Load(const std::string path);
+  std::ifstream Load(const std::string& path);
 
   std::unique_ptr<Lexer> lexer_;
   std::unique_ptr<Parser> parser_;

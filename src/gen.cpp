@@ -4,10 +4,9 @@
 
 #include "gen.hpp"
 
-Generator::Generator() : code_{} {}
+Generator::Generator() {}
 
-void Generator::PrintC(std::list<std::shared_ptr<Node>>& code) {
-  code_ = code;
+void Generator::PrintC(const std::list<std::unique_ptr<Node>>& codes) {
   std::cout
   << "#include <stdio.h>\n"
   << "#include <stdlib.h>\n\n"
@@ -18,7 +17,7 @@ void Generator::PrintC(std::list<std::shared_ptr<Node>>& code) {
   << "        return 1;\n"
   << "    }\n"
   << std::endl;
-  for (auto& code : code_) {
+  for (const auto& code : codes) {
     GenerateC(code, 0);
   }
   std::cout
@@ -27,7 +26,7 @@ void Generator::PrintC(std::list<std::shared_ptr<Node>>& code) {
   << std::endl;
 }
 
-void Generator::GenerateC(std::shared_ptr<Node> node, int depth) {
+void Generator::GenerateC(const std::unique_ptr<Node>& node, int depth) {
   std::cout << "    ";
   if (node->kind == ND_LOOP_END) {
     for (int i = 0; i < depth - 1; ++i) {
@@ -60,7 +59,7 @@ void Generator::GenerateC(std::shared_ptr<Node> node, int depth) {
       break;
     case ND_LOOP_START:
       std::cout << "while (*ptr) {" << std::endl;
-      for (auto& child : node->children) {
+      for (const auto& child : node->children) {
         GenerateC(child, depth + 1);
       }
       break;

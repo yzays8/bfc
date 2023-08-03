@@ -26,7 +26,7 @@ enum NodeKind {
 
 struct Node {
   NodeKind kind;
-  std::vector<std::shared_ptr<Node>> children;  // for LOOP_START
+  std::vector<std::unique_ptr<Node>> children;  // for LOOP_START
 };
 
 const std::string kCorrectTokens = R"(<>+-.,[])";

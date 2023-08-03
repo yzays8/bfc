@@ -10,10 +10,8 @@ constexpr int kMemSize = 30000;
 class Generator {
  public:
   Generator();
-  void PrintC(std::list<std::shared_ptr<Node>>& code);
+  void PrintC(const std::list<std::unique_ptr<Node>>& code);
 
  private:
-  void GenerateC(std::shared_ptr<Node> node, int depth);
-
-  std::list<std::shared_ptr<Node>> code_;
+  void GenerateC(const std::unique_ptr<Node>& node, int depth);
 };

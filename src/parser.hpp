@@ -8,14 +8,14 @@
 class Parser {
  public:
   Parser();
-  std::list<std::shared_ptr<Node>>& Parse(std::list<std::shared_ptr<Token>>& tokens);
+  std::list<std::unique_ptr<Node>>& Parse(const std::list<std::unique_ptr<Token>>& tokens);
 
  private:
   void Program();
-  std::shared_ptr<Node> Command();
+  std::unique_ptr<Node> Command();
 
-  std::list<std::shared_ptr<Token>> tokens_;
-  std::list<std::shared_ptr<Token>>::iterator token_iter_;
-  std::list<std::shared_ptr<Node>> code_;
+  std::list<std::unique_ptr<Token>>::const_iterator token_iter_;
+  std::list<std::unique_ptr<Token>>::const_iterator token_end_;
+  std::list<std::unique_ptr<Node>> code_;
   int depth_;
 };
