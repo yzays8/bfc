@@ -9,19 +9,21 @@
 #include "parser.hpp"
 #include "gen.hpp"
 
+namespace fs = std::filesystem;
+
 Compiler::Compiler()
     : lexer_{std::make_unique<Lexer>()},
       parser_{std::make_unique<Parser>()},
       generator_{std::make_unique<Generator>()} {}
 
 std::ifstream Compiler::Load(const std::string& path) {
-  if (!std::filesystem::is_regular_file(path)) {
-    std::cerr << path << " is not a regular file" << std::endl;
+  if (!fs::is_regular_file(path)) {
+    std::cerr << fs::weakly_canonical(fs::absolute(path)) << " is not a regular file" << std::endl;
     std::exit(EXIT_FAILURE);
   }
   std::ifstream ifs{path, std::ios::binary | std::ios::in};
   if (!ifs.is_open()) {
-    std::cerr << "Failed to open " << path << std::endl;
+    std::cerr << "Failed to open " << fs::weakly_canonical(fs::absolute(path)) << std::endl;
     std::exit(EXIT_FAILURE);
   }
   return ifs;
