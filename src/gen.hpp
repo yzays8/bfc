@@ -11,7 +11,11 @@ class Generator {
  public:
   Generator();
   void PrintC(const std::list<std::unique_ptr<Node>>& code);
+  void PrintX64(const std::list<std::unique_ptr<Node>>& code);
 
  private:
   void GenerateC(const std::unique_ptr<Node>& node, int depth);
+  void GenerateX64(const std::unique_ptr<Node>& node);
+
+  int label_;
 };

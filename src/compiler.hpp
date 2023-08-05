@@ -12,6 +12,7 @@ class Compiler {
  public:
   Compiler();
   void TranspileC(const std::string& path);
+  void CompileX64(const std::string& path);
 
  private:
   std::ifstream Load(const std::string& path);

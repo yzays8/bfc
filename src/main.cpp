@@ -10,5 +10,6 @@ int main(int argc, char** argv) {
   }
 
   auto compiler = std::make_unique<Compiler>();
-  compiler->TranspileC(argv[1]);
+  //compiler->TranspileC(argv[1]);
+  compiler->CompileX64(argv[1]);
 }

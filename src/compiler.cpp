@@ -32,3 +32,7 @@ std::ifstream Compiler::Load(const std::string& path) {
 void Compiler::TranspileC(const std::string& path) {
   generator_->PrintC(parser_->Parse(lexer_->Lex(Load(path))));
 }
+
+void Compiler::CompileX64(const std::string& path) {
+  generator_->PrintX64(parser_->Parse(lexer_->Lex(Load(path))));
+}
