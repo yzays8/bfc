@@ -13,7 +13,7 @@ void Generator::PrintC(const std::list<std::unique_ptr<Node>>& codes) {
   << "int main(void) {\n"
   << "    char *ptr = (char *)calloc(" << kMemSize << ", sizeof(char));\n" // calloc
   << "    if (ptr == NULL) {\n"
-  << "        printf(\"Failed to allocate memory\");\n"
+  << "        printf(\"Failed to allocate memory\\n\");\n"
   << "        return 1;\n"
   << "    }\n"
   << std::endl;
