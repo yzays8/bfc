@@ -12,3 +12,7 @@ clean:
 .PHONY: run
 run:
 	@make run FILE=$(FILE_PATH) -C $(SRCDIR) --no-print-directory
+
+.PHONY: runc
+runc:
+	@make runc FILE=$(FILE_PATH) -C $(SRCDIR) --no-print-directory

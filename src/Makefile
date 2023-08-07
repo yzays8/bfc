@@ -14,6 +14,10 @@ clean:
 run: $(TARGET)
 	@./$(TARGET) $(FILE)
 
+.PHONY: runc
+runc: $(TARGET)
+	@./$(TARGET) -c $(FILE)
+
 $(TARGET): $(OBJS) Makefile
 	$(CC) $(OBJS) $(LIBS) $(LDFLAGS) -o $@
 
