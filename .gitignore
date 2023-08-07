@@ -1,4 +1,6 @@
 testc
 testc.c
+test64
+test64.s
 src/*.o
 src/main
