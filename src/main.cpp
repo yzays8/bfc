@@ -11,16 +11,16 @@ int main(int argc, char** argv) {
 
   while ((opt = getopt(argc, argv, "c")) != -1) {
     switch (opt) {
-      case 'c':
-        if (argc - optind != 1) {
-          std::cerr << "Usage: " << argv[0] << " [-c] <file_path>" << std::endl;
-          return 1;
-        }
-        compiler->TranspileC(argv[optind]);
-        return 0;
-      default:
+    case 'c':
+      if (argc - optind != 1) {
         std::cerr << "Usage: " << argv[0] << " [-c] <file_path>" << std::endl;
         return 1;
+      }
+      compiler->TranspileC(argv[optind]);
+      return 0;
+    default:
+      std::cerr << "Usage: " << argv[0] << " [-c] <file_path>" << std::endl;
+      return 1;
     }
   }
 
