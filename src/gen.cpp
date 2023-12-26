@@ -162,12 +162,12 @@ void Generator::GenerateX64(const std::unique_ptr<Node>& node, int& label) {
       GenerateX64(child, label);
     }
     std::cout
-    << ".L" << current_label << ":\n"
-    << "    mov rax, QWORD PTR [rbp-8]\n"
-    << "    movzx eax, BYTE PTR [rax]\n"
-    << "    test al, al\n"
-    << "    jne .L" << current_label + 1
-    << std::endl;
+      << ".L" << current_label << ":\n"
+      << "    mov rax, QWORD PTR [rbp-8]\n"
+      << "    movzx eax, BYTE PTR [rax]\n"
+      << "    test al, al\n"
+      << "    jne .L" << current_label + 1
+      << std::endl;
     break;
   }
   case ND_LOOP_END:

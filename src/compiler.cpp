@@ -20,7 +20,7 @@ std::ifstream Compiler::Load(const std::string& path) {
     std::cerr << fs::weakly_canonical(fs::absolute(path)) << " is not a regular file" << std::endl;
     std::exit(EXIT_FAILURE);
   }
-  std::ifstream ifs{path, std::ios::binary | std::ios::in};
+  std::ifstream ifs(path, std::ios::binary | std::ios::in);
   if (!ifs.is_open()) {
     std::cerr << "Failed to open " << fs::weakly_canonical(fs::absolute(path)) << std::endl;
     std::exit(EXIT_FAILURE);
